@@ -5,5 +5,5 @@ Simple Stackoverflow topics scrapper for the purposes of learning and gaining te
 ###### Language
 Python
 ###### Libraries
-BeautifulSoup - for web scrapping \n
+BeautifulSoup - for web scrapping <br \>
 requests - for retrieving web html
