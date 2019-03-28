@@ -9,6 +9,12 @@ def get_html_response(url):
     Attempts to get the content at `url` by making an HTTP GET request.
     Return text content if response is of type HTML/XML
     Return None otherwise
+    
+    Args:
+        url (TYPE): Url to scrappable html
+    
+    Returns:
+        TYPE: Html/None
     """
     try:
         with closing(get(url, stream=True)) as resp:
@@ -24,8 +30,13 @@ def get_html_response(url):
 
 def is_good_response(resp):
     """
-    Returns True if the response is of type HTML
-    Return False otherwise.
+    Check if is good repsonse on get_html_response
+
+    Args:
+        resp (TYPE): Description
+    
+    Returns:
+        TYPE: True if the response is of type HTML, False otherwise
     """
     content_type = resp.headers['Content-Type'].lower()
     return (resp.status_code == 200 
@@ -38,6 +49,13 @@ def scrape_html(html, attribute_class=None):
 	Print all h3 elements' text if no attribute_class is given
 	Otherwise print only h3 elements' with given attribute_class
 	Failing that, returns an error message
+
+	Args:
+	    html (TYPE): Scrappable html
+	    attribute_class (None, optional): Optional attribute class for scrapping
+	
+	Returns:
+	    TYPE: H3 elemnts with class==attribute_class, all h3 elements if no attribute classes given
 	"""
 	response = get_html_response(html)
 
@@ -60,6 +78,9 @@ def scrape_html(html, attribute_class=None):
 def log_error(error):
 	"""
 	Error logger
+	
+	Args:
+	    error (TYPE): Description
 	"""
 	print(error)
 
